@@ -1,38 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 .App {
+  min-height: 100vh;
+  background: url('/src/assets/bg_universe.jpg');
+  background-size: contain;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 70px;
+}
+
+h1 {
+  margin:0;
+  color: #e2eaf6;
+  font-weight: bold;
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 50px;
+}
+
+.launch-cards-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.launch-card {
+  width:200px;
+  min-height:250px;
+  background:white;
+  opacity: 0.8;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 0 #e2eaf6;
+  padding:32px;
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.launch-card img {
+  width: 100px;
+  margin:0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.launch-card h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #12068C;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.launch-card h3 {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-bar-wrapper {
+  text-align: center;
+  margin-bottom: 100px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-bar {
+  width: 400px;
+  height:50px;
+  background: white;
+  opacity: 0.9;
+  box-shadow: 0 2px 4px 0 #e2eaf6;
+  border:none;
+  border-radius: 30px;
+  font-size: 16px;
+  padding-left: 24px;
+  color:#12068C;
+  outline:none;
 }
