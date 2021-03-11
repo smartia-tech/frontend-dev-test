@@ -1,61 +1,10 @@
-import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 
-function AppError(props) {
-  return (
-    <div className="error">
-      Something happened: { props.error }
-    </div>
-  );
-}
-
-function AppLoading(props) {
-  return (
-    <div className="loading">
-      Loading apps
-    </div>
-  )
-}
-
-function Launch(props) {
-  return (
-    <div className="launch">
-      <span className="name">{props.launch.name}</span>
-      <img
-        className="launch-patch"
-        src={props.launch.links.patch.small}
-        alt="Launch icon"
-        width="20"
-      />
-      <span className="date">
-        { new Date(props.launch.date_utc).toISOString().split('T')[0] }
-      </span>
-      <span className="result">{props.launch.cores.landing_success}</span>
-    </div>
-  )
-}
-
-function Paginate(props) {
-  let pages = Math.ceil(props.entries.length / props.perPage);
-  let index = props.page * props.perPage;
-  let entries = props.entries.slice(index, index+10);
-  return (
-    <div>
-      <div className="entries">{entries}</div>
-      <div className="pages">
-        {new Array(pages).fill(0).map((_, i) => {
-          return <button
-            key={i}
-            className="page-accessor"
-            onClick={() => props.changePage(i)}
-            disabled={props.page === i}
-          >{i+1}</button>
-        })}
-      </div>
-    </div>
-  );
-}
+import AppError from './components/AppError.js';
+import AppLoading from './components/AppLoading.js';
+import Launch from './components/Launch.js';
+import Paginate from './components/Paginate.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -80,7 +29,7 @@ class App extends React.Component {
       this.setState({
         error: ex
       });
-    })
+    });
   }
 
   render() {
