@@ -1,6 +1,6 @@
 export default function AppLoading(props) {
   return (
-    <div className="loading">
+    <div className="app-loading">
       Loading apps
     </div>
   )

@@ -1,12 +1,13 @@
+import '../css/components/Launch.css';
+
 export default function Launch(props) {
   return (
     <div className="launch">
       <span className="name">{props.launch.name}</span>
       <img
-        className="launch-patch"
+        className="icon"
         src={props.launch.links.patch.small}
         alt="Launch icon"
-        width="20"
       />
       <span className="date">
         { new Date(props.launch.date_utc).toISOString().split('T')[0] }

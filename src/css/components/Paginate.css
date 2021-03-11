@@ -1,0 +1,7 @@
+.pages {
+  max-width: max-content;
+  margin: auto;
+}
+.page-accessor {
+  width: 40px;
+}

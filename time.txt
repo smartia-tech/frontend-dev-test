@@ -1,4 +1,4 @@
- start | end    | summary
-7:00pm | 7:20pm | Raw result and data displayed
-8:00pm | 8:35pm | Pagination and search
-9:10pm | 
+ start |   end   | summary
+7:00pm |  7:20pm | Raw result and data displayed
+8:00pm |  8:35pm | Pagination and search
+9:10pm | 10:25pm | Reorganize, styling, exact/fuzzy/regex search types
