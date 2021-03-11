@@ -1,7 +1,7 @@
 export default function AppLoading(props) {
   return (
-    <div className="app-loading">
-      Loading apps
+    <div className="app-loading" style={{ textAlign: 'center' }}>
+      Loading launches...
     </div>
   )
 }
