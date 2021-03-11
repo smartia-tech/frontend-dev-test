@@ -1,18 +1,27 @@
 .launch {
   display: grid;
   grid-template:
-    "icon name" auto
-    "icon about" auto /
-    max-content auto;
+    "icon name result" auto
+    "icon about about " auto /
+    max-content 1fr min-content;
   background-color: #DADADA;
   border: 2px solid black;
   margin: 4px;
   padding: 4px;
 }
 
-.launch .name  { grid-area:  name; }
-.launch .icon  { grid-area:  icon; }
-.launch .about { grid-area: about; }
+.launch .name   { grid-area:   name; }
+.launch .icon   { grid-area:   icon; }
+.launch .about  { grid-area:  about; }
+.launch .result { grid-area: result; }
+
+.launch .links a {
+  padding-right: 4px;
+}
+
+.launch .seperator {
+  padding: 0px 4px;
+}
 
 .icon {
   height: 60px;

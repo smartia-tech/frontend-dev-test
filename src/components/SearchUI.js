@@ -55,7 +55,7 @@ export default class SearchUI extends React.Component {
   }
 
   filter(launch) {
-    let date = new Date(launch.date_utc)
+    let date = new Date(launch.date_utc);
     if (date < this.state.dateStart || date > this.state.dateEnd)
       return false;
 

@@ -3,3 +3,6 @@
  8:00pm |  8:35pm | Pagination and search
  9:10pm | 10:25pm | Reorganize, styling, exact/fuzzy/regex search types
 10:25pm | 10:55pm | Refactor search ui, searching by date range
+10:55pm | 11:15pm | Final touches, launch entry links, core, result
+
+Total time: 3 hours
