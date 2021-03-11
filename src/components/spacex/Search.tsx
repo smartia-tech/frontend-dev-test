@@ -13,8 +13,8 @@ const Search: React.FC = () => {
     fetchLaunches(inputTxt);
   };
   return (
-    <div>
-      <h2>Search for Launches by name</h2>
+    <div className="search">
+      <h2 className="head-md">Search for Launches by name</h2>
       <form onSubmit={onSubmit}>
         <input
           type="text"

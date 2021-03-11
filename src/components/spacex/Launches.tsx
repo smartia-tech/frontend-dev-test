@@ -13,10 +13,12 @@ const Launches: React.FC = () => {
   }, []);
   return (
     <div>
-      <h2>Past Launches</h2>
-      {launches.map((launch) => {
-        return <Launch key={launch.id} launch={launch} />;
-      })}
+      <h2 className="head-md">Launches</h2>
+      <div className="launches">
+        {launches.map((launch) => {
+          return <Launch key={launch.id} launch={launch} />;
+        })}
+      </div>
     </div>
   );
 };
