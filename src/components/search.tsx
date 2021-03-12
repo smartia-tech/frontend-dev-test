@@ -1,5 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import debounce from 'lodash.debounce';
+import TextField from '@material-ui/core/TextField';
+
 
 const SearchBar = ({ searchAction }: SearchParam) => {
     //maybe pass this by props
@@ -12,7 +14,7 @@ const SearchBar = ({ searchAction }: SearchParam) => {
 
     return (
         <div>
-            <input placeholder="Search by name" onChange={debounce(doSearch, waitUntil)} />
+            <TextField size="medium" placeholder="Search by name" onChange={debounce(doSearch, waitUntil)}  />
         </div>
     )
 

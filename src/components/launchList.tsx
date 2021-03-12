@@ -8,7 +8,7 @@ const LaunchList = ({ launches=[] }: LaunchListParam) => {
     })
 
     return (
-        <div data-testid="list">
+        <div className="List" data-testid="list">
             {launches.length ? launchItems : <h3>No Result</h3>}
         </div>
     )

@@ -3,6 +3,7 @@ import ListContainer from '../components/launchListContainer'
 
 const listContainerId = 'list-container'
 const listId = 'list';
+const loaderId = "loader"
 
 test("render error message when provided",() => {
     const message = "Network Error"
@@ -13,8 +14,8 @@ test("render error message when provided",() => {
 
 test('renders loading indicatior', () => {
     render(<ListContainer isLoading={true} />);
-    const element = screen.getByTestId(listContainerId)
-    expect(element).toHaveTextContent('Loading')
+    const element = screen.getByTestId(loaderId)
+    expect(element).toBeInTheDocument()
 });
 
 test('renders list when there is no error or loading', () => {
