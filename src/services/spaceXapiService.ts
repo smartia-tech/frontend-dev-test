@@ -9,7 +9,7 @@ export const getpastLaunches = (page: number = 1): Promise<PaginatedResponse> =>
     }
     const options = { ...defaultOptions, page }
     //using query route instead of '/past' becuase it supports pagination
-    return axios.post(`${config.BASE_URL}/launches/query`, { query, options })
+    return axios.post(`${config.BASE_URL}/launches/query`, { query, options }).then(res => res.data)
 }
 
 export const searchLaunchesByName = (search: string, page: number = 1): Promise<PaginatedResponse> => {
@@ -24,7 +24,7 @@ export const searchLaunchesByName = (search: string, page: number = 1): Promise<
 
     const options = { ...defaultOptions, page }
 
-    return axios.post(`${config.BASE_URL}/launches/query`, { query, options })
+    return axios.post(`${config.BASE_URL}/launches/query`, { query, options }).then(res => res.data)
 
 }
 
