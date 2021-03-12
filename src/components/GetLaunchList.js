@@ -16,6 +16,6 @@ export const getLaunch = async () => {
       cores: failureCores.length === 0 ? true : false,
     };
   });
-  console.log(response);
+
   return response;
 };

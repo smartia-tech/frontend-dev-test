@@ -85,7 +85,6 @@ const Pagination = (props) => {
     setEndIndex(endIndex);
   }, [props.list]);
 
-  console.log(endIndex);
   return (
     <PaginationWrapper className={props.className}>
       <div className="pagination-container">
