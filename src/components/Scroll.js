@@ -1,3 +1,4 @@
+//This class helps in adding an individual scroll for the cards that keeps search bar at its place while scrolling
 import React from 'react'
 
 const Scroll =(props) => {

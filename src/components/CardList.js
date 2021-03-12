@@ -1,3 +1,5 @@
+//The extensive list of cards (flights) as per the reponse.
+
 import React from 'react'
 import Card from './Card';
 

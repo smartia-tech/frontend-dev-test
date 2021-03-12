@@ -1,3 +1,4 @@
+//If error occurs this will display a simplified error message to user (only in production)
 import React, {Component} from 'react';
 
 class ErrorBoundary extends Component{

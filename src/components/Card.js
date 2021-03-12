@@ -1,6 +1,6 @@
+//This Card class is reponsible for the representation a card that has information about a flight
 import React from 'react';
 import './Card.css';
-
 
 const Card =({id,name,image,date,totalCores,landedCores}) =>{    
     return (

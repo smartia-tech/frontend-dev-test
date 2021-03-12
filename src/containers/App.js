@@ -14,16 +14,20 @@ class App extends Component {
             searchField: ''
         }
     }
+    //Fetch the Space X past mission using the provided Api
     componentDidMount(){
         fetch('https://api.spacexdata.com/v4/launches/past')
         .then(response => response.json())
         .then(spaceShips => [this.setState({flights:spaceShips})]);
         
     }
+
+    //On chaning the serach field set it to filter the names
     onSearchChange = (event) => {
         this.setState({searchField: event.target.value});        
     }
 
+    //Render te page
     render(){
         const {flights, searchField} = this.state;
         const filteredFlights = flights.filter(flight => {
@@ -35,7 +39,7 @@ class App extends Component {
         else{
             return(
                 <div className='tc'>
-                    <h1 className ='f1'>Space-X</h1>
+                    <h1 className ='f1'>Space-X</h1>                    
                     <SearchBox searchChange={this.onSearchChange}/>
                     <Scroll>
                         <ErrorBoundary>
@@ -49,5 +53,4 @@ class App extends Component {
     }
     
 }
-
 export default App;
