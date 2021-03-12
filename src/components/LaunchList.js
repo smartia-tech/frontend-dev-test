@@ -1,9 +1,22 @@
 import React from "react";
 import { getLaunch } from "./GetLaunchList";
 import CardView from "./CardView";
+import SearchInput from "./SearchInput";
+import CustomSearch from "../helper/CustomSearch";
 
 const LaunchList = () => {
   const [launch, setLaunch] = React.useState([]);
+  const [inputs, setInputs] = React.useState({
+    search: "",
+  });
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs((inputs) => ({
+      ...inputs,
+      [name]: value,
+    }));
+  };
 
   const handleGetLaunch = async () => {
     try {
@@ -18,11 +31,23 @@ const LaunchList = () => {
     handleGetLaunch();
   }, []);
 
-  
+  const filteredLaunch = CustomSearch(inputs.search, launch, "name");
 
   return (
     <div>
-      <CardView launch={launch} />
+      <h1 className="text-heading">Space-X launch</h1>
+      <div className="search-input">
+        <SearchInput
+          type="text"
+          onChange={onChange}
+          name="search"
+          placeholder="Search by name"
+          value={inputs.search}
+          dataTestId="search"
+          ariaLabel="Search"
+        />
+      </div>
+      <CardView launch={filteredLaunch} />
     </div>
   );
 };

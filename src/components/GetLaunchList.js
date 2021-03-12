@@ -14,7 +14,7 @@ export const getLaunch = async () => {
     return {
       image: item.links.patch.small || "--/--",
       name: item.name,
-      launchDate: moment(item.date_utc).format("MMM Do YY"),
+      launchDate: moment(item.date_utc).format("LL"),
       cores: failureCores.length === 0 ? true : false,
     };
   });
