@@ -80,6 +80,7 @@ const CardView = (props) => {
 
   return (
     <CardViewWrapper className={props.className}>
+      {launch.length > 0 ? (
       <div className="card-view-container">
         {launch.map((list, index) => (
           <div
@@ -105,7 +106,11 @@ const CardView = (props) => {
             </div>
           </div>
         ))}
-      </div>
+      </div> ) : (
+          <p data-testid="empty-box">
+        No launches
+      </p>
+        )}
       <div className="card-pagination-container">
         <Pagination onPageChanged={handlePagination} list={props.launch} />
       </div>
