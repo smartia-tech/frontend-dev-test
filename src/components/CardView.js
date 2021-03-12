@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PaginateMethod from "../helper/paginateMethod";
+import Pagination from "./Pagination";
 
 const CardViewWrapper = styled.div`
   .card-view-container {
@@ -53,13 +55,33 @@ const CardViewWrapper = styled.div`
       align-items: left;
     }
   }
+
+  .card-pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
 `;
 
 const CardView = (props) => {
+  const [launch, setLaunch] = React.useState([]);
+
+  React.useEffect(() => {
+    const launch = PaginateMethod(props.launch, 1);
+
+    setLaunch(launch);
+  }, [props.launch]);
+
+  const handlePagination = (currentIndex) => {
+    const launch = PaginateMethod(props.launch, currentIndex);
+
+    setLaunch(launch);
+  };
+
   return (
     <CardViewWrapper className={props.className}>
       <div className="card-view-container">
-        {props.launch.map((list, index) => (
+        {launch.map((list, index) => (
           <div
             className="card-list"
             key={`${list.launchDate}-${index}`}
@@ -83,6 +105,9 @@ const CardView = (props) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="card-pagination-container">
+        <Pagination onPageChanged={handlePagination} list={props.launch} />
       </div>
     </CardViewWrapper>
   );
