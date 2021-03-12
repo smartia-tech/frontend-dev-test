@@ -35,7 +35,7 @@ const LaunchList = () => {
 
   return (
     <div>
-      <h1 className="text-heading">Space-X launch</h1>
+      <h1 className="text-heading">Space-X Launch History</h1>
       <div className="search-input">
         <SearchInput
           type="text"
