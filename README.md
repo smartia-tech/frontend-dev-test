@@ -2,6 +2,8 @@
 
 This repository contains the Smartia frontend challenge.
 
+View completed project [here](https://smartia-frontend-dev-test-martins.netlify.app/)
+
 ## Setup
 
 In this repository you will find a vanilla [Create React App](https://create-react-app.dev/) project created using [Yarn](https://yarnpkg.com/).
