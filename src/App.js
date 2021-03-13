@@ -1,23 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import axios from "./axios";
+import { v4 as uuidv4 } from "uuid";
+import { ThemeProvider, createMuiTheme, TextField } from "@material-ui/core";
+import LaunchComponent from "./components/launch";
 
 function App() {
+  const [launches, setLaunches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
+  const theme = createMuiTheme({
+    palette: {
+      type: "dark",
+    },
+  });
+
+  useEffect(() => {
+    axios
+      .get("/launches/past")
+      .then((response) => {
+        setLaunches(response.data);
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const launchesList = () => {
+    return launches
+      .filter((value) =>
+        value.name.toLowerCase().match(search.toLocaleLowerCase())
+      )
+      .map((launch) => <LaunchComponent launch={launch} key={uuidv4()} />);
+  };
+
+  const changeHandler = (e) => {
+    setSearch(e.target.value);
+  };
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={theme}>
+        <h1 style={{ textAlign: "center", marginTop: "1em" }}>
+          Spacex Launches Search
+        </h1>
+        <div className="text_field_wrapper">
+          <TextField
+            variant="outlined"
+            value={search}
+            label="Search for a launch..."
+            onChange={changeHandler}
+          />
+        </div>
+
+        <div className="past_launches">
+          <h1 style={{ textAlign: "center" }}>Past launches: </h1>
+          <div className="launches">{launches && launchesList()}</div>
+        </div>
+      </ThemeProvider>
     </div>
   );
 }
