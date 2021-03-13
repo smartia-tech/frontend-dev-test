@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
 	return (
 		<div className="px-4 py-4 md:p-0 sticky top-0 z-50">
-			<div className=" px-4 navbar  flex flex-col md:flex-row rounded  shadow-sm py-2 md:py-5 items-center justify-between">
+			<div className=" px-20 navbar  flex flex-col md:flex-row rounded  shadow-sm py-2 md:py-5 items-center justify-between">
 				<svg className="h-6 md:h-10 w-60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50">
 					<g className="letter_s">
 						<path d="M37.5 30.5H10.9v-6.6h34.3c-.9-2.8-3.8-5.4-8.9-5.4H11.4c-5.7 0-9 2.1-9 6.7v4.9c0 4 3.4 6.3 8.4 6.3h26.9v7H1.5c.9 3.8 3.8 5.8 9 5.8h27.1c5.7 0 8.5-2.2 8.5-6.9v-4.9c0-4.3-3.3-6.6-8.6-6.9z" />
@@ -28,15 +28,19 @@ export default function Navbar() {
 						<path d="M399 .7c-80 4.6-117 38.8-125.3 46.9l-1.7 1.6h14.8C326.8 9.1 384.3 2 399 .7z" />
 					</g>
 				</svg>
-				<form className="search md:mt-0 mt-4 flex items-center">
+				<form onSubmit={(event) => {
+          event.preventDefault();
+          props.handleSearch(event.target.search.value)
+        }} className="search md:mt-0 mt-4 flex items-center">
 					<input
+            onChange={(e) => props.handleSearch(e.target.value)}
 						type="search"
 						name="search"
 						id="search"
 						className="p-2 rounded bg-gray-50"
-						placeholder="Search Mars..."
+						placeholder="Search Rockets and dragons..."
 					/>
-          <button type="submit" className="btn-search absolute bg-indigo-500 text-xl md:text-lg h-full px-4">🚀</button>
+          <button type="submit" className="btn-search bg-indigo-500 text-xl md:text-lg px-4">🚀</button>
 				</form>
 			</div>
 		</div>

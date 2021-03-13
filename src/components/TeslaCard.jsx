@@ -39,14 +39,14 @@ export default function TeslaCard({ data }) {
 				</div>
 				<hr className="mt-5 mb-4" />
         <div className="flex items-center justify-between">
-          <a target="_blank" rel="noopener noreferrer" href={data.links.article} className="cursor-pointer wiki flex items-center">
+          {data.links.article && <a target="_blank" rel="noopener noreferrer" href={data.links.article} className="cursor-pointer wiki flex items-center">
               <img className="h-7 w-7 inline-block mr-1" src={wikiIcon} alt=""/>
               Read More
-          </a>
-          <a  target="_blank" rel="noopener noreferrer" href={data.links.webcast}  className="cursor-pointer wiki flex items-center">
+          </a>}
+          {data.links.webcast && <a  target="_blank" rel="noopener noreferrer" href={data.links.webcast}  className="cursor-pointer wiki flex items-center">
               <img className="h-7 w-7 inline-block mr-1" src={ytIcon} alt=""/>
               Watch
-          </a>
+          </a>}
         </div>
 			</div>
 		</div>

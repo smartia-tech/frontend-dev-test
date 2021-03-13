@@ -7,7 +7,7 @@ body {
 	background-size: cover; /* Resize the background image to cover the entire container */
 	min-height: 100vh;
 	overflow-x: hidden;
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 .bg-image {
@@ -31,32 +31,61 @@ body {
 	position: absolute;
 	height: 100px;
 	width: 100px;
-  border-radius: 50%;
+	border-radius: 50%;
 	left: 50%;
 	top: 30px;
 	transform: translateX(-50%);
-  background: radial-gradient(73.95% 73.95% at 85.35% 16.98%, #000000 0%, rgba(129, 125, 125, 0) 100%);
+	background: radial-gradient(
+		73.95% 73.95% at 85.35% 16.98%,
+		#000000 0%,
+		rgba(129, 125, 125, 0) 100%
+	);
+	box-shadow: 0 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 .navbar {
-  background: rgba(204, 204, 204, 0.5);
-  backdrop-filter: blur(20px);
-  box-shadow:
-  0 4.5px 3.6px rgba(0, 0, 0, 0.024),
-  0 12.5px 10px rgba(0, 0, 0, 0.035),
-  0 30.1px 24.1px rgba(0, 0, 0, 0.046),
-  0 100px 80px rgba(0, 0, 0, 0.07)
-;
+	background: rgba(204, 204, 204, 0.5);
+	backdrop-filter: blur(20px);
+	box-shadow: 0 4.5px 3.6px rgba(0, 0, 0, 0.024), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+		0 30.1px 24.1px rgba(0, 0, 0, 0.046), 0 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 .search {
-  position: relative;
+	position: relative;
 }
 .search input {
-  width: 300px;
+	width: 250px;
+	border-radius: 4px 0 0 4px;
 }
+
 .search .btn-search {
-  top: 0  ;
-  right: 0;
-  border-radius: 0 4px 4px 0;
+	top: 0;
+	height: 40px;
+	left: 0;
+	border-radius: 0 4px 4px 0;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
