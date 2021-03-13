@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <h1 style={{ textAlign: "center", marginTop: "1em" }}>
-          Spacex Launches Search
+          Space-X Launches Search
         </h1>
         <div className="text_field_wrapper">
           <TextField
