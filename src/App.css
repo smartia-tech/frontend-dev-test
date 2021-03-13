@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+body {
+	background-image: url("./gradient-3-a.png");
+	/* background-color: gray; */
+	background-attachment: fixed;
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+	min-height: 100vh;
+	overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-image {
+	object-fit: cover;
+	background: #1f1c2c; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #928dab, #1f1c2c); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#928dab,
+		#1f1c2c
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+	height: auto;
+	background: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(20px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+  border-radius: 50%;
+	left: 50%;
+	top: 30px;
+	transform: translateX(-50%);
+  background: radial-gradient(73.95% 73.95% at 85.35% 16.98%, #000000 0%, rgba(129, 125, 125, 0) 100%);
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  background: rgba(204, 204, 204, 0.5);
+  backdrop-filter: blur(20px);
+  box-shadow:
+  0 4.5px 3.6px rgba(0, 0, 0, 0.024),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 30.1px 24.1px rgba(0, 0, 0, 0.046),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search {
+  position: relative;
+}
+.search input {
+  width: 300px;
+}
+.search .btn-search {
+  top: 0  ;
+  right: 0;
+  border-radius: 0 4px 4px 0;
 }
