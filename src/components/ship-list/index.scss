@@ -1,0 +1,31 @@
+.ship-list {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+  }
+
+  &-input {
+    margin-left: 35%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+}
+
+.paginationBttns {
+  margin-left: 7%;
+  width: 80%;
+  height:40px;
+  list-style:none;
+  display:flex;
+  justify-content:center;
+}
+
+.paginationBttns a {
+  padding:10px;
+  margin:8px;
+  border-radius: 5px;
+  border:1px solid black;
+  color:black;
+  cursor:pointer;
+}
