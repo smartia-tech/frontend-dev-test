@@ -3,7 +3,7 @@ import styles from '../styles/Launch.module.css'
 import { Checkmark, Close, WikiIcon } from '../svgs'
 
 export default function Launch(props) {
-    const { selectedLaunch } = props
+    const { launches, selectedLaunch } = props
     
     return (
         <>

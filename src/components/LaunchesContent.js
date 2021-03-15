@@ -25,7 +25,8 @@ export default function LaunchesContent() {
         const { data } = await axios('https://api.spacexdata.com/v4/launches/past');
         setLaunches(data)
         setLaunchesDefault(data)
-        console.log(launches);
+
+        console.log(launches)
 
         setIsLoading(false)
 
@@ -49,7 +50,7 @@ export default function LaunchesContent() {
     
     // set a slected lounch bases on the hash url
     const initLaunchHash = () => {
-        setSelectedLaunch(launches.find((launch) => launch.id === hash.slice(1)))
+        setSelectedLaunch(launchesDefault.find((launch) => launch.id === hash.slice(1)))
     }
     
     // get data after first loads
@@ -57,11 +58,16 @@ export default function LaunchesContent() {
         fetchLaunches();
     }, [])
     
-    // calc total pages and load launc if hash exists once launches is initialized
+    // calc total pages and load launc if hash exists once launches are initialized
     useEffect(() => {
         calcPages();
         initLaunchHash();
     }, [launches])
+
+    // updates selected launch in the UI when first loading
+    useEffect(() => {
+        initLaunchHash();
+    }, [launchesDefault])
 
     // listen to input change to filter the data
     useEffect(() => {
@@ -129,7 +135,7 @@ export default function LaunchesContent() {
                     }
                 </div>
                 <Launch
-                    launches={launches}
+                    launches={launchesDefault}
                     selectedLaunch={selectedLaunch}
                 />
             </div>
