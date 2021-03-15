@@ -19,6 +19,7 @@ export default function LaunchesContent() {
     
     const fetchLaunches = async () => {
         setIsLoading(true)
+
         const { data } = await axios('https://api.spacexdata.com/v4/launches/past');
         setLaunches(data)
         console.log(launches);
@@ -42,12 +43,13 @@ export default function LaunchesContent() {
         fetchLaunches();
     }, [])
     
+    // do calculations once the value is initialized
     useEffect(() => {
         calcPages();
         initLaunchHash();
     }, [launches])
     
-    // Load launch after first loads
+    // listen to hash change in tab to update launch
     useEffect(() => {
         initLaunchHash();
     }, [hash])
@@ -87,8 +89,8 @@ export default function LaunchesContent() {
                 <div class={styles.pagination}>
                     <li onClick={() => setCurPage(0)}>1</li>
                     <li onClick={() => setCurPage(1)}>2</li>
-                    <li>3</li>
-                    <li>4</li>
+                    <li onClick={() => setCurPage(2)}>3</li>
+                    <li onClick={() => setCurPage(3)}>4</li>
                     <li onClick={() => setCurPage(23)}>...{pages}</li>
                 </div>
                 }

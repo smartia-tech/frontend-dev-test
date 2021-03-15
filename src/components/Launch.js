@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from '../styles/Launch.module.css'
-import { useLocation } from 'react-router-dom';
-import { Checkmark, Close, WikiIcon, LinkIcon } from '../svgs'
+import { Checkmark, Close, WikiIcon } from '../svgs'
 
 export default function Launch(props) {
     const { selectedLaunch } = props
@@ -41,7 +40,11 @@ export default function Launch(props) {
                                         />)
                                     }
                                 </div>
-                                <p> <span>Details:</span> {selectedLaunch.details ? selectedLaunch.details : 'No details'}.</p>
+                                <p className={styles.details}> 
+                                    <span>Details:</span> 
+                                    {selectedLaunch.details ? selectedLaunch.details : 'No details'}
+                                    {selectedLaunch.details.slice(-1) === '.' ? '' : '.'}
+                                </p>
                             </div>
                         )
                         :
