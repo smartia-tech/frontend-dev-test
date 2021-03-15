@@ -40,7 +40,9 @@ export default function LaunchesContent() {
 
     // calculate all pages
     const calcPages = () => {
-        const pages = launches.length / resultsSize;
+        let pages = (launches.length / resultsSize);
+        // total pages with 5 el
+        pages = Math.ceil(pages)
         setPages(pages)
         console.log('pages:', pages);
     }
@@ -120,12 +122,9 @@ export default function LaunchesContent() {
                         ))}
                     </div>
                     {isLoading ? '' : 
-                    <div class={styles.pagination}>
-                        <li onClick={() => setCurPage(0)}>1</li>
-                        <li onClick={() => setCurPage(1)}>2</li>
-                        <li onClick={() => setCurPage(2)}>3</li>
-                        <li onClick={() => setCurPage(3)}>4</li>
-                        <li onClick={() => setCurPage(23)}>...{pages}</li>
+                    <div class={styles.pagination}>  
+                        <li onClick={() => setCurPage(curPage > 0 ? curPage - 1 : curPage)}>Previous</li>
+                        <li onClick={() => setCurPage(curPage + 1 < pages ? curPage + 1 : curPage)}>Next</li>
                     </div>
                     }
                 </div>
