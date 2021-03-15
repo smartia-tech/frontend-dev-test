@@ -40,6 +40,8 @@ li {
 .listContainer {
     display: grid;
     grid-template-rows: repeat(5, 1fr);
+
+    min-height: 375px;
     
     box-sizing: border-box;
 }
@@ -57,14 +59,23 @@ li {
 .listContainer li:hover {
     background: #E5E4B4;
 }
+.active {
+    background: #E5E4B4;
+    pointer-events: none;
+}
 
 .imgListcontainer {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background: red;
 
     margin-right: 15px;
+}
+.imgListcontainer img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    height: 100%;
+    width: 100%;
 }
 .description {
     display: flex;
@@ -78,6 +89,7 @@ li {
 .pagination {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 .pagination li{
     position: relative;
@@ -87,29 +99,8 @@ li {
 .pagination li:not(:first-child) {
     margin-left: 10px;
 }
-.pagination li:not(:last-child)::after {
-    content: ',';
-    position: absolute;
-    right: -6px;
-}
 
 .pagination li:hover{
     cursor: pointer;
     background-color: #E5E4B4;
-}
-
-/* launch content */
-.mainContent {
-    padding: 12px 5px;
-    display: flex;
-    flex-direction: column;
-}
-.mainImgContainer {
-    align-self: center;
-    height: 200px;
-    background: red;
-    margin-bottom: 10px;
-}
-.mainImgContainer img {
-    height: 100%;
 }
