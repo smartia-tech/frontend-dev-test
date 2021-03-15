@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%23000000' width='11' height='11'/%3E%3Crect fill='%23060605' x='10' width='11' height='11'/%3E%3Crect fill='%230c0c09' y='10' width='11' height='11'/%3E%3Crect fill='%2310100e' x='20' width='11' height='11'/%3E%3Crect fill='%23141411' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23181714' y='20' width='11' height='11'/%3E%3Crect fill='%231b1b17' x='30' width='11' height='11'/%3E%3Crect fill='%231e1e1a' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%2321211c' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%2324241f' y='30' width='11' height='11'/%3E%3Crect fill='%23282821' x='40' width='11' height='11'/%3E%3Crect fill='%232b2b24' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%232f2e27' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23323229' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%2336352c' y='40' width='11' height='11'/%3E%3Crect fill='%2339392f' x='50' width='11' height='11'/%3E%3Crect fill='%233d3c32' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23404034' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23444437' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%2347473a' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%234b4b3d' y='50' width='11' height='11'/%3E%3Crect fill='%234f4f40' x='60' width='11' height='11'/%3E%3Crect fill='%23535243' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23565646' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%235a5a49' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%235e5e4c' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%2362624f' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23666652' x='70' width='11' height='11'/%3E%3Crect fill='%236a6a55' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%236e6e58' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%2372725b' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%2376765e' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%237a7a61' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%237e7e64' x='80' width='11' height='11'/%3E%3Crect fill='%23828267' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%2386866b' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%238a8a6e' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%238e8e71' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23929274' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23969677' x='90' width='11' height='11'/%3E%3Crect fill='%239b9b7b' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%239f9f7e' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23a3a381' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23a7a784' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23acac88' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23b0b08b' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23b4b48e' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23b9b892' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23bdbd95' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23c1c199' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23c6c69c' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23caca9f' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23cfcea3' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23d3d3a6' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23d7d7aa' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23dcdcad' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23e0e0b1' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23e5e5b4' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23e9e9b7' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEB' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;  
+
+padding: 60px 24px;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+
+  margin: 0;
+  padding: 0;
+}
+div, p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --max-width: 1000px;
 }

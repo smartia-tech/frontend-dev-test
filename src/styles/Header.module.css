@@ -1,0 +1,14 @@
+.headerContainer {
+    text-align: center;
+    text-transform: capitalize;
+
+    color: white;
+}
+.headerContainer h1 {
+    font-size: 38px;
+    line-height: 46px;
+}
+.headerContainer p {
+    font-size: 20px;
+    line-height: 28px;
+}
