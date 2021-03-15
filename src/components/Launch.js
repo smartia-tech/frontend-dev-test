@@ -41,9 +41,9 @@ export default function Launch(props) {
                                     }
                                 </div>
                                 <p className={styles.details}> 
-                                    <span>Details:</span> 
+                                    <span>Details: </span> 
                                     {selectedLaunch.details ? selectedLaunch.details : 'No details'}
-                                    {selectedLaunch.details.slice(-1) === '.' ? '' : '.'}
+                                    {selectedLaunch.details && selectedLaunch.details.slice(-1) === '.' ? '' : '.'}
                                 </p>
                             </div>
                         )
