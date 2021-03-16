@@ -13,9 +13,8 @@ class LandingComponent extends React.Component<Props, {}> {
         return(
             <div className="sx-landing">
                 <div className="container d-flex">
-                    <img src={logo} alt="logo" />
-                    <p className="m-0 text-uppercase pt-5 white-text">Launch and Land and Relaunch</p>
-                    <button className="sx-button" onClick={() => this.props.history.push(routes.LAUNCHES)}>
+                    <img className="pl-5" src={logo} alt="logo" />
+                    <button className="sx-button mt-5" onClick={() => this.props.history.push(routes.LAUNCHES)}>
                         View Past Launches
                     </button>
                 </div>

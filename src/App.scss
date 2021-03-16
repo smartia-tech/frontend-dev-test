@@ -1,2 +1,17 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import './styles/main';
+
+
+.App {
+    background-color: black;
+    min-height: 100vh;
+}
+// Card
+.ant-card-cover {
+    display: flex;
+    justify-content: center;
+    img {
+        height: 150px;
+        width: 150px;
+    }
+}

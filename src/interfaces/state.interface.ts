@@ -1,5 +1,8 @@
 export interface PastLaunches {
-    pastLaunches: Array<LaunchDetails>
+    pastLaunches: Array<LaunchDetails>;
+    searchResults: Array<LaunchDetails>;
+    pageNumber?: number;
+    searchKey?: string;
 }
 
 export interface LaunchDetails {
@@ -10,7 +13,7 @@ export interface LaunchDetails {
         }
     };
     date_local: string;
-    cores: {
+    cores: Array<{
         landing_success: boolean;
-    }
+    }>
 }

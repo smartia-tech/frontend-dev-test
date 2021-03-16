@@ -6,6 +6,8 @@ body {
   font: 20px/38px D-DIN-Medium,Arial,Verdana,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-color: black !important;
 }
 
 code {
