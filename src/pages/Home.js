@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Launch from '../components/Launch';
 import Filter from '../components/Filter';
 import url from '../utils/constants';
+import styles from '../styles/Home.module.css'
 
 const Home = () => {
   const [launches, setLaunches] = useState([]);
@@ -53,7 +54,7 @@ const Home = () => {
       <nav>
         <Filter entry={entry} handleInputChange={handleInputChange} />
       </nav>
-      <ul>
+      <ul className={styles.wrapper}>
         {filtered()}
       </ul>
     </>

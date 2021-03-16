@@ -1,0 +1,4 @@
+.wrapper {
+  display: grid;
+  grid-template: auto/repeat(3, 1fr);
+}
