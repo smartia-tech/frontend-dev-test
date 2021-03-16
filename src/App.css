@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::selection {
+  background-color: #807019;
+  color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: black;
+  background-image: url('./space.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.App-header {
-  background-color: #282c34;
+.page-wrapper {
+  color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.filter__form {
+  padding: 20px 0 30px;
+  width: 500px;
+  max-width: 100%;
+}
+.filter__label {
+  display: block;
+  padding-bottom: 5px;
+  padding-left: 28px;
+  font-weight: 900;
+  letter-spacing: 0.75em;
+  text-transform: uppercase;
+  font-size: 12px
+}
+.filter__input {
+  width: 100%;
+  padding: 20px 28px;
+  border-radius: 40px;
+  border: none;
+  color: #050f24;
+  background-color: rgba(192, 209, 246, 0.7);
+  transition: 0.3s;
+  font-size: 20px;
+  box-shadow: inset -3px -6px 20px rgba(255, 255, 255, 0.15),
+              inset -1px -1px 1px rgba(255, 255, 255, 0.15),
+              inset 3px 6px 20px rgba(0, 0, 0, 0.15),
+              inset 1px 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(2px) saturate(150%) brightness(250%);
+  backdrop-filter: blur(2px) saturate(150%) brightness(250%);
+}
+.filter__input:focus {
+  color: black;
+  outline: none;
+  background-color: white;
+  box-shadow: none;
+}
+
+.results__list {
+  flex-grow: 1;
+  width: 500px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid teal;
+  background-color: rgba(36, 35, 69, 0.9);
+}
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .results__list {
+    background-color: rgba(36, 35, 69, 0.6);
+    -webkit-backdrop-filter: blur(20px) saturate(175%) brightness(50%);
+    backdrop-filter: blur(20px) saturate(175%) brightness(50%);
+  }
+}
+.result__link {
+  border-bottom: 1px solid #415565;
+  display: grid;
+  grid-template-columns: 100px 20px auto;
+  grid-template-areas:
+    "patch . name"
+    "patch . date"
+    "patch . status";
+  align-items: start;
+  padding: 20px;
+  transition: 0.3s;
+  text-decoration: none;
   color: white;
+  outline: 1px solid transparent;
 }
-
-.App-link {
-  color: #61dafb;
+.result__link:focus,
+.result__link:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  outline-color: currentColor;
+  outline-offset: 0;
+  color: #e0b642;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.result__patch {
+  grid-area: patch;
+  max-width: 100px;
+  position: relative;
+}
+.result__name {
+  grid-area: name;
+  font-size: 20px;
+  font-weight: 700;
+}
+.result__date {
+  grid-area: date;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+.result__cores {
+  grid-area: status;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.result__core-status {
+  color: white;
+  line-height: 1.8em;
+  padding: 0 8px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+.result__core-status:not(:first-child) {
+  margin-left: 5px;
+}
+.result__core-status--success {
+  background-color: #4b58ce;
+}
+.result__core-status--failure {
+  background-color: #ce4b4b;
 }
