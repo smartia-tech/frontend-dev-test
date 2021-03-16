@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import App from './App';
+import Filter from './index';
 
-describe('App', () => {
+describe('Filter', () => {
   it('should match snapshot', () => {
-    const { container } = render(<App />);
+    const { container } = render(<Filter handleInputChange={jest.fn()} />);
 
     expect(container).toMatchSnapshot();
   });

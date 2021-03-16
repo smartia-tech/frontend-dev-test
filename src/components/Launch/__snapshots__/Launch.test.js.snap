@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Launch should match snapshot 1`] = `
+<div>
+  <li
+    class="launchInfo"
+  >
+    <div>
+      <img
+        alt="spacelaunch"
+        src="image"
+      />
+      <h3>
+        SatPad
+      </h3>
+    </div>
+    <ul
+      class="cores"
+    >
+      <h4>
+        Cores Landing Success
+      </h4>
+    </ul>
+    <time
+      datetime="12/11/2021"
+    >
+      12/11/2021
+    </time>
+  </li>
+</div>
+`;

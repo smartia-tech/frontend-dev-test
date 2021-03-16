@@ -1,0 +1,16 @@
+.launchInfo {
+  border: 1px solid grey;
+  border-radius: 10px;
+  list-style: none;
+  text-align: center;
+}
+
+.cores {
+  border: 1px solid red;
+  margin: 15px
+}
+
+.cores > h4 {
+  background-color: grey;
+  margin-top: 0
+}

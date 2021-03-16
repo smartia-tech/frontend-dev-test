@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter should match snapshot 1`] = `
+<div>
+  <input
+    class="search"
+    placeholder="Search..."
+    type="text"
+  />
+</div>
+`;
