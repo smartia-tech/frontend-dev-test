@@ -98,6 +98,12 @@ This could include:
 
 > Tip! Consider that others might work on this application in the future.
 
+## My Implementation Summary
+I forked the given repository, cloned to my local PC and created 2 more branches: the development branch and the working/feature branch.
+
+I created components as deemed necessary, fetch from the API as requested and style my components using CSS BEM structure. I fixed likely bugs and deployed the app on Netlify.
+
+Finally, I created a pull request from my feature branch to my development branch. In summary, it took me almost 3hours, but the project was fun to build.
 ## Author
 
 👤 **Taofeek Olalere**
