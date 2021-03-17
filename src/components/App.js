@@ -1,12 +1,10 @@
-import '../styles/App.css';
+import '../styles/App.scss';
 import Launches from '../containers/Launches';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Launches />
-      </header>
+      <Launches />
     </div>
   );
 }

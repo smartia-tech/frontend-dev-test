@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 const Launch = ({ launch }) => {
   const getStatus = status => (typeof status === 'undefined' ? 'Unspecified' : status);
   return (
-    <article>
-      <div>
+    <article className="Launch">
+      <div className="Launch__image">
         <img src={launch.links.patch.small} alt="launch-img" />
       </div>
-      <div>
-        <h4>{`Name: ${launch.name}`}</h4>
-        <p>{`Launch Date: ${Date(launch.date_local).toLocaleString()}`}</p>
-        <p>{`Cores landing status: ${getStatus(launch.cores.landing_success)}`}</p>
+      <div className="Launch_details">
+        <h4 className="title">{`Name: ${launch.name}`}</h4>
+        <p>
+          {`Launch Date: ${new Date(launch.date_local).toLocaleDateString()}`}
+        </p>
+        <p>
+          {`Cores landing status: ${getStatus(launch.cores.landing_success)}`}
+        </p>
       </div>
     </article>
   );

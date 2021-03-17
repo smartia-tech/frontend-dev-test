@@ -43,10 +43,17 @@ const Launches = () => {
   }, []);
 
   return (
-    <main>
-      <Search query={query} setQuery={updateQuery} />
-      <section>{allLaunches}</section>
-    </main>
+    <>
+      <header className="Header">
+        <h2 className="Header__title">Catalog of SpaceX Launches</h2>
+        <div className="Header__searchbar">
+          <Search query={query} setQuery={updateQuery} />
+        </div>
+      </header>
+      <main className="List">
+        {allLaunches}
+      </main>
+    </>
   );
 };
 

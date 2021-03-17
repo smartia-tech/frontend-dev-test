@@ -7,6 +7,7 @@ const Search = ({ query, setQuery }) => {
 
   return (
     <input
+      className="Header__searchbar--custom"
       value={query}
       placeholder="Search by launch name..."
       onChange={e => handleChange(e.target.value)}
