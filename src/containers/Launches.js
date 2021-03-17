@@ -10,16 +10,26 @@ const Launches = () => {
   const [query, setQuery] = useState('');
   const [DefaultLaunchList, setDefaultLaunchList] = useState();
   const [launchList, setLaunchList] = useState([]);
+  const [error, setError] = useState('');
+  const [info, setInfo] = useState('Loading...');
 
   const setData = async data => {
     const launches = await data;
-    setLaunchList(launches);
-    setDefaultLaunchList(launches);
+    if (typeof launches === 'string') {
+      setError(launches);
+      setInfo('');
+    } else {
+      setError('');
+      setLaunchList(launches);
+      setDefaultLaunchList(launches);
+    }
   };
 
-  const allLaunches = typeof launchList === 'undefined' || launchList.length === 0
-    ? <p>loading...</p>
-    : launchList.map(launch => <Launch key={launch.id} launch={launch} />);
+  const allLaunches = typeof launchList === 'undefined' || launchList.length === 0 ? (
+    <p>{`${info}${error}`}</p>
+  ) : (
+    launchList.map(launch => <Launch key={launch.id} launch={launch} />)
+  );
 
   const updateQuery = query => {
     setQuery(query);
