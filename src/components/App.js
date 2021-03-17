@@ -1,10 +1,11 @@
 import '../styles/App.css';
+import Launches from '../containers/Launches';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Hello world</p>
+        <Launches />
       </header>
     </div>
   );
