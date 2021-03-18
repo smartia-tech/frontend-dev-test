@@ -1,0 +1,21 @@
+.container {
+  background-color: #fff;
+  border-radius: 100px;
+  height: 60px;
+  overflow: hidden;
+  box-shadow: 0px 0px 150px #fff;
+  position: relative;
+  display: flex;
+  input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: #fff;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+  }
+}

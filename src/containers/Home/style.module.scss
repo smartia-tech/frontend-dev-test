@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(114.35deg, #9105FF 0%, #FB4DFF 100%);
+  position: relative;
+  .input-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .results {
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+  }
+}
