@@ -26,6 +26,7 @@ function App() {
     setLaunches(data);
     setHasError(error);
   }, [data]);
+
   return (
     <div className="content">
       <h1 className="content__title">SpaceX&apos;s Launches</h1>
