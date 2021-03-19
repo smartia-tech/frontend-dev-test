@@ -7,6 +7,7 @@ import LaunchesSearch from './components/LaunchesSearch';
 import parser from './helpers/parser';
 import fetcher from './helpers/fetcher';
 import filterLaunches from './helpers/searchFilter';
+import API_URL from './helpers/constants';
 
 function App() {
   const { search } = window.location;
@@ -17,7 +18,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState(query || '');
   const [launches, setLaunches] = useState(null);
 
-  const { data, error } = useSWR(`https://api.spacexdata.com/v4/launches/${period}`, fetcher);
+  const { data, error } = useSWR(`${API_URL}/${period}`, fetcher);
 
   const allLaunches = parser.get(launches);
   const filteredLaunches = filterLaunches(allLaunches, searchQuery);
