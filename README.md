@@ -92,3 +92,8 @@ Everyone's approach to this task will be unique, we cannot wait to hear your tho
 Once you are ready, submit a pull-request with your solution and shoot me an email at `phil.ostler@smartia.tech` with a link to your pull-request and copy of your up-to-date CV. We will then schedule a call with you as soon as we receive it to discuss your solution (this call usually lasts about 1-2 hours, as we want to get to know one another well). **If you have submitted a PR with a solution to the task, you will be invited for the call** as we believe that it’s only fair to put in the same amount of time as do the candidates.
 
 We hope that you will have fun with it!
+
+## Deploy
+
+The production version of this test is on netlify
+Here's the link: https://blissful-goldstine-a78089.netlify.app/
