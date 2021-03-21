@@ -37,7 +37,7 @@ export default class LaunchList extends React.Component {
                     {new Date(launch.date_utc).toLocaleDateString('en-US')}
                 </td>
                 <td>
-                    {launch.cores.find(core => core.landing_success) ? 'true' : 'false'}
+                    {launch.cores.find(core => core.landing_success) ? 'YES' : 'NO'}
                 </td>
             </tr>
         });
@@ -49,9 +49,9 @@ export default class LaunchList extends React.Component {
             <table className="data-table">
                 <thead>
                     <tr>
-                        <th>launchName</th>
-                        <th>launchDate</th>
-                        <th>landing_success</th>
+                        <th>Launch Name</th>
+                        <th>Launch Date</th>
+                        <th>Launch Success</th>
                     </tr>
                 </thead>
                 <tbody>
