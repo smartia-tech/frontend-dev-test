@@ -1,9 +1,14 @@
 import Routes from "./routes";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles, GlobalTheme } from "./assets/styles";
 
 const App = () => {
   return (
     <>
-      <Routes />
+      <ThemeProvider theme={GlobalTheme}>
+        <Routes />
+        <GlobalStyles />
+      </ThemeProvider>
     </>
   );
 };
