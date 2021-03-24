@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const Container = styled.div`
   z-index: 99999;
@@ -43,17 +43,17 @@ export const ContentClosingAnimation = keyframes`
 `;
 
 export const Content = styled.div`
+${({ theme, isOpen, size }) => css`
   z-index: 99999;
   margin: auto;
   padding: 15px;
   position: relative;
-  border-radius: 6px;
+  border-radius: ${theme.border.radius};
   background-color: transparent;
-  animation: ${({ isOpen }) =>
-    isOpen ? ContentOpenAnimation : ContentClosingAnimation}
-    0.5s ease-in-out;
+  animation: ${isOpen ? ContentOpenAnimation : ContentClosingAnimation} 0.5s
+    ease-in-out;
 
-  width: ${({ size }) => {
+  width: ${() => {
     switch (size) {
       case "lg":
         return "800px";
@@ -67,7 +67,6 @@ export const Content = styled.div`
     }
   }};
 
-
   @media (min-width: 480px) {
     max-width: 728px;
   }
@@ -79,8 +78,9 @@ export const Content = styled.div`
   @media (min-width: 1200px) {
     max-width: 1140px;
   }
-}
-  `;
+`}
+      }
+      `;
 
 export const CloseButton = styled.button`
   z-index: 999999;

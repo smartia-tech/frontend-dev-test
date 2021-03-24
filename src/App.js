@@ -1,13 +1,16 @@
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles, GlobalTheme } from "./assets/styles";
+import Notifications from "react-notifications-component";
 import Routes from "./routes";
 
 const App = () => {
   return (
     <>
       <ThemeProvider theme={GlobalTheme}>
-        <Routes />
         <GlobalStyles />
+        <Notifications />
+
+        <Routes />
       </ThemeProvider>
     </>
   );

@@ -19,7 +19,7 @@ export default createGlobalStyle`${({ theme }) => css`
   textarea {
     border: 0;
     outline: 0;
-    font-family: ${theme.font};
+    font-family: ${theme.font.family};
     line-height: 20px;
   }
 `}
@@ -27,16 +27,17 @@ export default createGlobalStyle`${({ theme }) => css`
 `;
 
 export const PageContainer = styled.div`
-  padding: var(--navbar-height) 0 var(--navbar-height);
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background: ${({ backgroundColor }) =>
-    backgroundColor || "var(--background-color, #fff)"};
+  ${({ theme }) => css`
+    padding: ${theme.navbar.height} 0 ${theme.navbar.height};
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: ${theme.page.backgroundColor}};
+  `}
 `;
 
 export const PageTitle = styled.h1`
@@ -98,39 +99,47 @@ export const PageOptions = styled(ResponsiveContainer)`
 `;
 
 export const FlexContainer = styled.div`
-  width: ${({ width }) => width || "100%"};
-  display: flex;
-  flex-wrap: wrap;
-  align-items: ${({ alignItems }) => alignItems || "center"};
-  justify-content: ${({ justifyContent }) => justifyContent || "center"};
+  ${({ width, alignItems, justifyContent }) => css`
+    width: ${width || "100%"};
+    display: flex;
+    flex-wrap: wrap;
+    align-items: ${alignItems || "center"};
+    justify-content: ${justifyContent || "center"};
 
-  &:after {
-    content: "";
-    flex: auto;
-  }
+    &:after {
+      content: "";
+      flex: auto;
+    }
+  `}
 `;
 
 export const FlexItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  width: ${({ lg }) => (lg ? (100 / 12) * lg : "16.66")}%;
+  ${({ lg, md, sm, xs, mb, margin, padding }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: ${lg ? (100 / 12) * lg : "16.66"}%;
 
-  @media screen and (max-width: 1199px) {
-    width: ${({ md }) => (md ? (100 / 12) * md : "20")}%;
-  }
+    @media screen and (max-width: 1199px) {
+      width: ${md ? (100 / 12) * md : "20"}%;
+    }
 
-  @media screen and (max-width: 991px) {
-    width: ${({ sm }) => (sm ? (100 / 12) * sm : "33.33")}%;
-  }
+    @media screen and (max-width: 991px) {
+      width: ${sm ? (100 / 12) * sm : "33.33"}%;
+    }
 
-  @media screen and (max-width: 586px) {
-    width: ${({ xs }) => (xs ? (100 / 12) * xs : "100")}%;
-  }
+    @media screen and (max-width: 768px) {
+      width: ${xs ? (100 / 12) * xs : "50"}%;
+    }
 
-  & > * {
-    margin: ${({ margin }) => margin || "0"};
-    padding: ${({ padding }) => padding || "0"};
-  }
+    @media screen and (max-width: 586px) {
+      width: ${mb ? (100 / 12) * mb : "100"}%;
+    }
+
+    & > * {
+      margin: ${margin || "0"};
+      padding: ${padding || "0"};
+    }
+  `}
 `;
