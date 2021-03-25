@@ -35,3 +35,8 @@ div, p {
 :root {
   --max-width: 1000px;
 }
+
+.disabled {
+    opacity: .4;
+    pointer-events: none;
+}

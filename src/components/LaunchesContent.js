@@ -106,8 +106,9 @@ export default function LaunchesContent() {
                         {isLoading ? 
                             ( <li> Loading...</li> ) 
                         :
-                            launches && launches.slice(curPage * resultsSize, curPage * resultsSize + resultsSize).map(launch => (
-                            <li 
+                            // in case there are 0 pages(no data found when filtering) do not loop
+                            pages === 0 ? <p className={styles.noContentText} >No launches found</p> : launches && launches.slice(curPage * resultsSize, curPage * resultsSize + resultsSize).map(launch => (
+                            <li
                                 className={hash.slice(1) === launch.id ? styles.active : ''}
                                 id={launch.id} 
                                 onClick={() => history.push(`#${launch.id}`)}
@@ -133,9 +134,9 @@ export default function LaunchesContent() {
                     </div>
                     {isLoading ? '' : 
                     <div class={styles.pagination}>  
-                        <li onClick={() => setCurPage(curPage > 0 ? curPage - 1 : curPage)}>Previous</li>
+                        <li className={curPage === 0 && 'disabled'} onClick={() => setCurPage(curPage > 0 ? curPage - 1 : curPage)}>Previous</li>
                         <li>{curPage + 1} / {pages}</li>
-                        <li onClick={() => setCurPage(curPage + 1 < pages ? curPage + 1 : curPage)}>Next</li>
+                        <li className={curPage + 1 === pages && 'disabled'} onClick={() => setCurPage(curPage + 1 < pages ? curPage + 1 : curPage)}>Next</li>
                     </div>
                     }
                 </div>

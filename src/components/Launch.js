@@ -1,10 +1,12 @@
 import React from 'react'
 import styles from '../styles/Launch.module.css'
-import { Checkmark, Close, WikiIcon } from '../svgs'
+import { Checkmark, Close, WikiIcon , Close2} from '../svgs'
+import { useHistory } from 'react-router-dom'
 
 
 export default function Launch(props) {
     const { launches, selectedLaunch } = props
+    const history = useHistory()
     
     return (
         <>
@@ -13,6 +15,10 @@ export default function Launch(props) {
                     {selectedLaunch 
                         ? (
                             <div class={styles.mainContent}>
+                                <Close2
+                                    onClick={() => history.push('#')}
+                                    className={styles.closeIcon}
+                                />
                                 <div class={styles.mainImgContainer}>
                                     <img src={selectedLaunch.links.patch.small} alt="launch-img-big" />
                                 </div>
