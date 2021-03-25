@@ -3,6 +3,7 @@ import styles from '../styles/LaunchesContent.module.css';
 import { useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Launch from '../components/Launch';
+import Truncate from 'react-truncate'
 
 
 export default function LaunchesContent() {
@@ -114,7 +115,9 @@ export default function LaunchesContent() {
                                     <img src={launch.links.patch.small} alt="launch-img" />
                                 </div>
                                 <div class={styles.description}>
-                                    <p>{launch.name}</p>
+                                    <Truncate lines={1} >
+                                        {launch.name}
+                                    </Truncate>
                                     <p>
                                         {
                                             new Date(launch.date_local).toLocaleString('en-US', {
@@ -130,6 +133,7 @@ export default function LaunchesContent() {
                     {isLoading ? '' : 
                     <div class={styles.pagination}>  
                         <li onClick={() => setCurPage(curPage > 0 ? curPage - 1 : curPage)}>Previous</li>
+                        <li>{curPage + 1} / {pages}</li>
                         <li onClick={() => setCurPage(curPage + 1 < pages ? curPage + 1 : curPage)}>Next</li>
                     </div>
                     }
