@@ -76,6 +76,7 @@ export default function LaunchesContent() {
             return launch.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
         })
         setLaunches(filtered)
+        setCurPage(0)
     }, [inputValue])
     
     // listen to hash change in tab to update launch
