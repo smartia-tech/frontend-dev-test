@@ -14,6 +14,7 @@ export default function LaunchesContent() {
     const [curPage, setCurPage] = useState(0)
     const [selectedLaunch, setSelectedLaunch] = useState('')
     const [inputValue, setInputValue] = useState('')
+    const [errMsg, setErrMsg] = useState('')
 
     const history = useHistory()
     const { hash } = useLocation()
@@ -21,15 +22,23 @@ export default function LaunchesContent() {
     const resultsSize = 5;
     
     const fetchLaunches = async () => {
-        setIsLoading(true)
+        try {
+            setIsLoading(true)
 
-        const { data } = await axios('https://api.spacexdata.com/v4/launches/past');
-        setLaunches(data)
-        setLaunchesDefault(data)
+            const { data } = await axios('https://api.spacexdata.com/v4/launches/past');
+            // const { data } = await axios('https://api.spacexdata.com/v4/laun');
+            setLaunches(data)
+            setLaunchesDefault(data)
 
-        console.log(launches)
+            console.log(launches)
 
-        setIsLoading(false)
+        } catch(err) {
+            console.log('my eror',err);
+            setErrMsg(`Error: ${err.message}`)
+        } finally {
+            setIsLoading(false)
+
+        }
 
     }
 
@@ -77,6 +86,7 @@ export default function LaunchesContent() {
         })
         setLaunches(filtered)
         setCurPage(0)
+        if(pages === 0) setErrMsg('No data found')
     }, [inputValue])
     
     // listen to hash change in tab to update launch
@@ -89,7 +99,7 @@ export default function LaunchesContent() {
             <div className={styles.searchWrapper}>
                 <input 
                     type="text" 
-                    placeholder="Search Launches..."
+                    placeholder="Search by Rocket Name..."
                     onChange={handleInputChange}
                 />
                 <svg class="Icon Icon--search-desktop" role="presentation" viewBox="0 0 21 21">
@@ -107,7 +117,7 @@ export default function LaunchesContent() {
                             ( <li> Loading...</li> ) 
                         :
                             // in case there are 0 pages(no data found when filtering) do not loop
-                            pages === 0 ? <p className={styles.noContentText} >No launches found</p> : launches && launches.slice(curPage * resultsSize, curPage * resultsSize + resultsSize).map(launch => (
+                            pages === 0 ? <p className={styles.noContentText} >{errMsg}</p> : launches && launches.slice(curPage * resultsSize, curPage * resultsSize + resultsSize).map(launch => (
                             <li
                                 className={hash.slice(1) === launch.id ? styles.active : ''}
                                 id={launch.id} 

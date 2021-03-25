@@ -156,6 +156,7 @@ li {
     .ContentWrapper {
         max-height: 100%;
         
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
     }
 }
