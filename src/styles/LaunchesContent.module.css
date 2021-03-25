@@ -150,3 +150,12 @@ li {
 .noContentText {
     padding: 12px 5px;
 }
+
+@media (max-width: 950px) {
+    /* content */
+    .ContentWrapper {
+        max-height: 100%;
+        
+        grid-template-columns: 1fr;
+    }
+}
