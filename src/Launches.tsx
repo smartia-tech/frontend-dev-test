@@ -6,6 +6,7 @@ import { Card, Input, Pagination, Tag } from 'antd';
 import logo from './assets/spacex.svg';
 import './Launches.scss';
 import * as routes from './constants/routes.json';
+import Image from "./Image";
 
 interface LaunchesProps {
     history: any
@@ -127,14 +128,14 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                                     className="p-3"
                                     hoverable
                                     style={{ width: 240 }}
-                                    cover={<img alt="example" src={launch?.links?.patch?.small} />}
+                                    cover={<Image source={launch?.links?.patch?.small} altText="spacex image" />}
                                 >
                                     <p className="m-0">{launch.name}</p>
                                     <small className="font-italice">Launched on </small>
-                                    <small className="font-italice">{this.convertDate(launch.date_local)}</small>
+                                    <small className="font-italice">{this.convertDate(launch?.date_local)}</small>
                                     <p className="m-0 pt-3">
                                         {
-                                            this.coreStatus(launch.cores)
+                                            this.coreStatus(launch?.cores)
                                         }
                                     </p>
                                 </Card>
