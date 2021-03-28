@@ -39,32 +39,40 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
     }
 
     paginate(array: Array<any>) {
-        return array.slice((this.state.pageNumber! - 1) * this.pageSize, this.state.pageNumber! * this.pageSize);
+        if(array.length > 9) {
+            return array.slice((this.state.pageNumber! - 1) * this.pageSize, this.state.pageNumber! * this.pageSize);
+        } else 
+            return array
     }
 
     search = (e: React.FormEvent<HTMLInputElement>) => {
         let value = e.currentTarget.value;
-        console.log(value);
-        let search = this.state.pastLaunches
-        .filter(
-            launch => {
-                return launch.name.toLowerCase().includes(value.toLowerCase())
+        if(value === '') {
+            this.setState({
+                searchResults: this.state.pastLaunches
             })
-        .sort((a,b) => {
-            if(a.name.toLowerCase().indexOf(value.toLowerCase()) > b.name.toLowerCase().indexOf(value.toLowerCase())) {
-                return 1;
-            } else if (a.name.toLowerCase().indexOf(value.toLowerCase()) < b.name.toLowerCase().indexOf(value.toLowerCase())) {
-                return -1;
-            } else {
-                if(a.name > b.name)
+        } else {
+            let search = this.state.pastLaunches
+            .filter(
+                launch => {
+                    return launch.name.toLowerCase().includes(value.toLowerCase())
+                })
+            .sort((a,b) => {
+                if(a.name.toLowerCase().indexOf(value.toLowerCase()) > b.name.toLowerCase().indexOf(value.toLowerCase())) {
                     return 1;
-                else
+                } else if (a.name.toLowerCase().indexOf(value.toLowerCase()) < b.name.toLowerCase().indexOf(value.toLowerCase())) {
                     return -1;
-            }
-        })
-        this.setState({
-            searchResults: search
-        })
+                } else {
+                    if(a.name > b.name)
+                        return 1;
+                    else
+                        return -1;
+                }
+            });
+            this.setState({
+                searchResults: search
+            })
+        }
     }
 
     coreStatus(cores: Array<{landing_success: boolean}>) {
@@ -106,7 +114,7 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                     searchResults: res.data,
                     pastLaunches: res.data,
                     pageNumber: 1
-                })
+                });
             }
         )
         .catch()
