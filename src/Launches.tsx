@@ -23,6 +23,7 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
             pageNumber: 1
         }
         this.pageChange = this.pageChange.bind(this);
+        this.coreStatus = this.coreStatus.bind(this);
     }
 
     pageChange(page: number) {
@@ -65,6 +66,37 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
         })
     }
 
+    coreStatus(cores: Array<{landing_success: boolean}>) {
+        let successCount: number  = 0;
+        let failureCount: number = 0;
+        if(cores.length === 0) {
+            return (
+                <Tag color="blue">Not known</Tag>
+            )
+        } else {
+            cores.forEach((core) => {
+                if(core.landing_success === true) {
+                    successCount++
+                } else if (core.landing_success === false) {
+                    failureCount++
+                }
+            })
+            if(successCount > failureCount) {
+                return(
+                    <Tag color="green">Success</Tag>
+                )
+            } else if(successCount < failureCount) {
+                return(
+                    <Tag color="red">Failed</Tag>
+                )
+            } else if(successCount === failureCount) {
+                return(
+                    <Tag color="blue">Not known</Tag>
+                )
+            }
+        }
+    }
+
     componentDidMount() {
         axios.get(`${BASE_URL}${API_URL.PAST_LAUNCHES}`)
         .then(
@@ -76,6 +108,7 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                 })
             }
         )
+        .catch()
     }
 
     render() {
@@ -94,18 +127,14 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                                     className="p-3"
                                     hoverable
                                     style={{ width: 240 }}
-                                    cover={<img alt="example" src={launch.links.patch.small} />}
+                                    cover={<img alt="example" src={launch?.links?.patch?.small} />}
                                 >
                                     <p className="m-0">{launch.name}</p>
                                     <small className="font-italice">Launched on </small>
                                     <small className="font-italice">{this.convertDate(launch.date_local)}</small>
                                     <p className="m-0 pt-3">
                                         {
-                                            (launch.cores[0].landing_success === false) ? (
-                                                <Tag color="red">Failed</Tag>
-                                            ) : (launch.cores[0].landing_success === true) ? (
-                                                <Tag color="green">Success</Tag>
-                                            ) : <Tag color="blue">Not known</Tag>
+                                            this.coreStatus(launch.cores)
                                         }
                                     </p>
                                 </Card>
