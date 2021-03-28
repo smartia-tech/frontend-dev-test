@@ -27,10 +27,10 @@ class Image extends React.Component<ImageProps, ImageState> {
         this.setState({image: this.props.source})
     }
 
-    componentWillReceiveProps(nextProps: ImageProps) {
+    componentDidUpdate(prevProps: ImageProps) {
         // You don't have to do this check first, but it can help prevent an unneeded render
-        if (nextProps.source !== this.state.image) {
-          this.setState({ image: nextProps.source });
+        if (prevProps.source !== this.props.source) {
+          this.setState({ image: this.props.source });
         }
       }
 

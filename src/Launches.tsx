@@ -120,6 +120,10 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
         .catch()
     }
 
+    componentDidUpdate() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         return(
             <div className="sx-launches container p-5 h-100">
