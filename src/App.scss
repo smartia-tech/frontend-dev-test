@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import './styles/main';
 
-
 .App {
     background-color: black;
     min-height: 100vh;
@@ -16,5 +15,8 @@
     }
 }
 .ant-pagination-item-ellipsis {
+    color: white !important;
+}
+.ant-spin {
     color: white !important;
 }

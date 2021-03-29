@@ -3,6 +3,7 @@ export interface PastLaunches {
     searchResults: Array<LaunchDetails>;
     pageNumber?: number;
     searchKey?: string;
+    isLoading: boolean;
 }
 
 export interface LaunchDetails {

@@ -2,11 +2,11 @@ import axios from "axios";
 import React from "react";
 import { API_URL, BASE_URL } from "./constants/url.constants";
 import { LaunchDetails, PastLaunches } from "./interfaces/state.interface";
-import { Card, Input, Pagination, Tag } from 'antd';
+import { Input, Pagination, Spin } from 'antd';
 import logo from './assets/spacex.svg';
 import './Launches.scss';
 import * as routes from './constants/routes.json';
-import Image from "./Image";
+import CardComponent from './CardComponent';
 
 interface LaunchesProps {
     history: any
@@ -21,21 +21,16 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
         this.state = {
             searchResults: [],
             pastLaunches: [],
-            pageNumber: 1
+            pageNumber: 1,
+            isLoading: false
         }
         this.pageChange = this.pageChange.bind(this);
-        this.coreStatus = this.coreStatus.bind(this);
     }
 
     pageChange(page: number) {
         this.setState({
             pageNumber: page
         })
-    }
-
-    convertDate(dateString: string) {
-        let date = new Date(dateString);
-        return date.toDateString();
     }
 
     paginate(array: Array<any>) {
@@ -75,38 +70,10 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
         }
     }
 
-    coreStatus(cores: Array<{landing_success: boolean}>) {
-        let successCount: number  = 0;
-        let failureCount: number = 0;
-        if(cores.length === 0) {
-            return (
-                <Tag color="blue">Not known</Tag>
-            )
-        } else {
-            cores.forEach((core) => {
-                if(core.landing_success === true) {
-                    successCount++
-                } else if (core.landing_success === false) {
-                    failureCount++
-                }
-            })
-            if(successCount > failureCount) {
-                return(
-                    <Tag color="green">Success</Tag>
-                )
-            } else if(successCount < failureCount) {
-                return(
-                    <Tag color="red">Failed</Tag>
-                )
-            } else if(successCount === failureCount) {
-                return(
-                    <Tag color="blue">Not known</Tag>
-                )
-            }
-        }
-    }
-
     componentDidMount() {
+        this.setState({
+            isLoading: true
+        });
         axios.get(`${BASE_URL}${API_URL.PAST_LAUNCHES}`)
         .then(
             (res) => {
@@ -115,9 +82,15 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                     pastLaunches: res.data,
                     pageNumber: 1
                 });
+                this.setState({isLoading : false});
             }
         )
-        .catch()
+        .catch(
+            (err) => {
+                this.setState({isLoading : false});
+                console.log(err);
+            }
+        )
     }
 
     componentDidUpdate() {
@@ -127,6 +100,11 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
     render() {
         return(
             <div className="sx-launches container p-5 h-100">
+                {
+                    this.state.isLoading ? (
+                        <Spin className="spinner" />
+                    ) : null
+                }
                 <div className="header d-flex justify-between align-center">
                     <img className="cursor-pointer" onClick={() => this.props.history.push(routes.LANDING)} src={logo} alt="logo" />
                     <Input className="search-input" placeholder="Search" onChange={this.search} allowClear />
@@ -136,34 +114,22 @@ class LaunchesComponent extends React.Component<LaunchesProps, PastLaunches> {
                     this.paginate(this.state.searchResults).map(
                         (launch: LaunchDetails,i) => (
                             <div className="col-md-4 mb-5" key={i}>
-                                <Card
-                                    className="p-3"
-                                    hoverable
-                                    style={{ width: 240 }}
-                                    cover={<Image source={launch?.links?.patch?.small} altText="spacex image" />}
-                                >
-                                    <p className="m-0">{launch.name}</p>
-                                    <small className="font-italice">Launched on </small>
-                                    <small className="font-italice">{this.convertDate(launch?.date_local)}</small>
-                                    <p className="m-0 pt-3">
-                                        {
-                                            this.coreStatus(launch?.cores)
-                                        }
-                                    </p>
-                                </Card>
+                                <CardComponent launch={launch} />
                             </div>
                         )
                     )
                 }
                 </div>
                 {
-                    this.state.searchResults.length > 0 ? (
+                    (this.state.searchResults.length) > 0 ? (
                         <Pagination pageSize={this.pageSize} onChange={this.pageChange} current={this.state.pageNumber} defaultCurrent={1} showSizeChanger={false} total={this.state.searchResults.length} />
-                    ) : (
-                        <div className="d-flex justify-center">
-                            <p className="white-text">No results found</p>
-                        </div>    
-                    )
+                    ) : (!this.state.isLoading) ? (
+                        (
+                            <div className="d-flex justify-center">
+                                <p className="white-text">No results found</p>
+                            </div>    
+                        )
+                    ) : null
                 }
             </div>
         )
