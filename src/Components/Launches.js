@@ -38,6 +38,7 @@ const LaunchGet = () => {
     }
     useEffect(() => {
         filterLaunches();
+    // eslint-disable-next-line
     }, [search, launches]);
 
 
