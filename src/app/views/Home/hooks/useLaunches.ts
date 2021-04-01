@@ -11,10 +11,13 @@ export default function useLaunches() {
   >();
 
   const { mutate, data, error, isLoading } = useMutation(
+    
     lauchesServices.queryLaunches,
-    {
-      mutationKey: "launches",
-    }
+  
+     {
+        mutationKey: "launches",
+      }
+  
   );
   const fetchLaunches = React.useCallback(
     (search = "", page = 1) => {
@@ -27,6 +30,7 @@ export default function useLaunches() {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+  const clearSearch = () =>setSearch("");
 
   const debouncedFetch = React.useMemo(
     () =>
@@ -71,5 +75,6 @@ export default function useLaunches() {
     onPrev,
     handleSearch,
     search,
+    clearSearch
   };
 }

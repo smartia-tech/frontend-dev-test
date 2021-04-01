@@ -17,6 +17,7 @@ export default function Home() {
     onPrev,
     search,
     handleSearch,
+    clearSearch,
   } = useLaunches();
 
   return (
@@ -28,6 +29,9 @@ export default function Home() {
         placeholder="Search Launch name"
         value={search}
         onChange={handleSearch}
+        loading={isLoading}
+        clear
+        onClearInput={clearSearch}
       />
       <LoaderContainer
         className="loader-box"

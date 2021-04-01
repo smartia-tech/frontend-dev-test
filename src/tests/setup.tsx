@@ -4,17 +4,12 @@ import { MemoryRouter } from "react-router-dom";
 
 import Providers from "app/providers";
 
-// const q = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-
 function setup(
   ui: React.ReactElement<any>,
   { initialState = {}, route = "/", ...overrides }: any = {}
 ) {
   return render(
-    <Providers
-      queryConfig={{ defaultOptions: { queries: { retry: false } } }}
-      // initialQuestionState={initialState}
-    >
+    <Providers queryConfig={{ defaultOptions: { queries: { retry: false } } }}>
       <MemoryRouter initialEntries={[route]}>{ui}</MemoryRouter>
     </Providers>,
     overrides
