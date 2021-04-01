@@ -9,7 +9,14 @@ function setup(
   { initialState = {}, route = "/", ...overrides }: any = {}
 ) {
   return render(
-    <Providers queryConfig={{ defaultOptions: { queries: { retry: false } } }}>
+    <Providers
+      queryConfig={{
+        defaultOptions: {
+          queries: { retry: false },
+          mutations: { retry: false },
+        },
+      }}
+    >
       <MemoryRouter initialEntries={[route]}>{ui}</MemoryRouter>
     </Providers>,
     overrides

@@ -7,7 +7,6 @@ import useLaunches from "./hooks/useLaunches";
 import { HomeContainer, Launches } from "./styles";
 
 export default function Home() {
-  // eslint-disable-next-line no-empty-pattern
   const {
     data,
     isLoading,
@@ -50,7 +49,7 @@ export default function Home() {
             onNext={onNext}
             onPrev={onPrev}
           >
-            <Launches>
+            <Launches role="feed">
               {data.docs.map((launch) => (
                 <SpaceLaunch key={launch.id} launch={launch} />
               ))}

@@ -4,6 +4,7 @@ import debounce from "lodash.debounce";
 
 import lauchesServices from "app/api/launches";
 import { LaunchesResponse } from "app/api/launches/types";
+import useUpdateEffect from "app/hooks/useUpdateEffect";
 
 export default function useLaunches() {
   const [launches, setLaunches] = React.useState<
@@ -40,7 +41,7 @@ export default function useLaunches() {
     [fetchLaunches, search]
   );
 
-  React.useEffect(() => {
+  useUpdateEffect(() => {
     debouncedFetch();
   }, [debouncedFetch, search]);
 

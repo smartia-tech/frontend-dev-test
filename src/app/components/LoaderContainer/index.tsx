@@ -32,11 +32,17 @@ const LoaderContainer: React.FC<Props> = (props) => {
             loaderContainerClassName || ""
           }`}
         >
-          <Loader className="loader" size="60" strokeWidth="2" />
+          <Loader
+            role="status"
+            aria-label="loader"
+            className="loader"
+            size="60"
+            strokeWidth="2"
+          />
         </LoaderBox>
       )}
       {!loading && error && (
-        <ErrorContainer>
+        <ErrorContainer role="alert">
           <P medium semiBold className="error-message">
             {errorMessage}
           </P>
