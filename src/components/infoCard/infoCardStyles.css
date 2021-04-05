@@ -1,0 +1,26 @@
+.infoCard {
+  width: 33.9rem;
+  height: 9rem;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 1rem;
+}
+
+.infoCard__img {
+  width: 13rem;
+  height: 8.9rem;
+  padding: 10px
+}
+
+.pagination__btn {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  font-size: 18px;
+}
+
+.footer__pagination {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

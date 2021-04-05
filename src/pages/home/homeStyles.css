@@ -1,0 +1,15 @@
+.search__btn {
+  background-color: #222222 !important;
+  width           : 200px;
+  border-color    : #222222 !important;
+}
+
+.search__btn:hover {
+  border-color    : #8177f4 !important;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
